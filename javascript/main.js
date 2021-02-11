@@ -95,7 +95,7 @@ SoundCloudAPI.renderTracks = (tracks) => {
 // Play Music
 function playMusic(link) {
   var track_url = link;
-  SC.oEmbed(track_url, { auto_play: true }).then(function (oEmbed) {
+  SC.oEmbed(track_url, { auto_play: false }).then(function (oEmbed) {
     console.log('oEmbed response: ', oEmbed);
     var sidebar = document.querySelector(".inner");
 
