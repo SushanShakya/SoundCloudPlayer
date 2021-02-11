@@ -97,7 +97,7 @@ function playMusic(link) {
   var track_url = link;
   SC.oEmbed(track_url, { auto_play: true }).then(function (oEmbed) {
     console.log('oEmbed response: ', oEmbed);
-    var sidebar = document.querySelector(".js-playlist");
+    var sidebar = document.querySelector(".inner");
 
     let box = document.createElement("div");
     box.innerHTML = oEmbed.html;
@@ -109,7 +109,14 @@ function playMusic(link) {
   });
 }
 
-var sidebar = document.querySelector(".js-playlist");
+var sidebar = document.querySelector(".inner");
 
 sidebar.innerHTML = localStorage.getItem("playlist");
 
+// Clear button
+
+let clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener('click', () => {
+  localStorage.clear();
+  sidebar.innerHTML = "";
+});
